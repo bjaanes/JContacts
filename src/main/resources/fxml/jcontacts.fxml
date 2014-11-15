@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+
+<GridPane fx:controller="JContactsController" xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10" styleClass="root">
+    <padding><Insets top="25" right="25" bottom="25" left="25"/></padding>
+    <stylesheets>
+        <URL value="@../css/jcontacts.css" />
+    </stylesheets>
+
+    <Text id="welcome-text" text="JContacts" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.columnSpan="2"/>
+
+    <Label text="Firstname" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+
+    <TextField fx:id="firstname" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+    <Label text="Lastname" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+
+    <TextField fx:id="lastname" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+    <HBox spacing="10" alignment="bottom_right" GridPane.columnIndex="1" GridPane.rowIndex="4">
+        <Button text="Add Contact" onAction="#handleSubmitButtonAction"/>
+    </HBox>
+
+    <Text fx:id="actiontarget" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+
+</GridPane>
