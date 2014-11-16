@@ -8,7 +8,7 @@
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
         <class>data.Contact</class>
         <properties>
-            <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+            <property name="javax.persistence.schema-generation.database.action" value="create"/>
             <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver"/>
             <property name="javax.persistence.jdbc.url" value="jdbc:derby:JContactsDB;create=true"/>
             <property name="eclipselink.logging.level" value="INFO"/>

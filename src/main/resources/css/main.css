@@ -1,6 +1,7 @@
-root {
+.root {
     display: block;
 }
+
 .label {
     -fx-font-size: 12px;
     -fx-font-weight: bold;

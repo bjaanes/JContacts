@@ -5,17 +5,17 @@ import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 
-public class JContacts extends Application {
+public class Main extends Application {
 
     public static void main(String[] args) {
-        Application.launch(JContacts.class, args);
+        Application.launch(Main.class, args);
     }
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("fxml/jcontacts.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("fxml/main.fxml"));
 
-        stage.setTitle("JContacts by the Lura's");
+        stage.setTitle("Main by the Lura's");
         stage.setScene(new Scene(root, 300, 275));
         stage.show();
     }
