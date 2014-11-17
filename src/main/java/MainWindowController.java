@@ -37,7 +37,7 @@ public class MainWindowController implements Initializable {
         addContactController.setMainWindowController(this);
 
         Stage stage = new Stage();
-        stage.setTitle("My New Stage Title");
+        stage.setTitle("Add New Contact");
         stage.setScene(new Scene(root, 450, 450));
         stage.show();
     }
@@ -64,6 +64,7 @@ public class MainWindowController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        contactListView.autosize();
         refreshContacts();
     }
 

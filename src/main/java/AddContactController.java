@@ -5,8 +5,8 @@ import javafx.scene.control.TextField;
 import javax.persistence.*;
 
 public class AddContactController {
-    @FXML private TextField firstname;
-    @FXML private TextField lastname;
+    @FXML private TextField firstName;
+    @FXML private TextField lastName;
 
     private EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("JContactsPersistenceUnit");
     private MainWindowController mainWindowController;
@@ -14,7 +14,7 @@ public class AddContactController {
     @FXML protected void addContact() {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
-        Contact contact = new Contact(firstname.getText(), lastname.getText());
+        Contact contact = new Contact(firstName.getText(), lastName.getText());
 
         EntityTransaction entityTransaction = entityManager.getTransaction();
         entityTransaction.begin();

@@ -11,11 +11,11 @@
 
     <Text id="welcome-text" text="Main" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.columnSpan="2"/>
 
-    <Label text="Firstname" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-    <TextField fx:id="firstname" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    <Label text="First name" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+    <TextField fx:id="firstName" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
 
-    <Label text="Lastname" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-    <TextField fx:id="lastname" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+    <Label text="Last name" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+    <TextField fx:id="lastName" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
 
     <HBox spacing="10" alignment="bottom_right" GridPane.columnIndex="1" GridPane.rowIndex="4">
         <Button text="Add Contact" onAction="#addContact"/>
