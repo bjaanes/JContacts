@@ -8,8 +8,12 @@
 <?import javafx.geometry.Insets?>
 <BorderPane fx:controller="MainWindowController" xmlns:fx="http://javafx.com/fxml" styleClass="root">
 
-    <center>
+    <left>
         <ListView fx:id="contactListView" />
+    </left>
+
+    <center>
+        <fx:include source="addContact.fxml"/>
     </center>
 
     <bottom>

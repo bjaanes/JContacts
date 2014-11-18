@@ -1,3 +1,4 @@
+import com.google.common.eventbus.Subscribe;
 import data.Contact;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -28,13 +29,21 @@ public class MainWindowController implements Initializable {
 
     EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("JContactsPersistenceUnit");
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        refreshContacts();
+        Main.eventBus.register(this);
+    }
+
+    @Subscribe
+    public void handleChangeEvent(ContactListChangedEvent event) {
+        refreshContacts();
+    }
+
     @FXML
     protected void openAddContactDialog() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/addContact.fxml"));
         Parent root = (Parent)fxmlLoader.load();
-
-        AddContactController addContactController = fxmlLoader.getController();
-        addContactController.setMainWindowController(this);
 
         Stage stage = new Stage();
         stage.setTitle("Add New Contact");
@@ -60,12 +69,6 @@ public class MainWindowController implements Initializable {
             Contact resultContact = (Contact)resultList.get(i);
             contactList.add(resultContact);
         }
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        contactListView.autosize();
-        refreshContacts();
     }
 
     private static class ContactCellFactoryCallback implements Callback<ListView<Contact>, ListCell<Contact>> {

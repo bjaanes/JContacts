@@ -9,7 +9,6 @@ public class AddContactController {
     @FXML private TextField lastName;
 
     private EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("JContactsPersistenceUnit");
-    private MainWindowController mainWindowController;
 
     @FXML protected void addContact() {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
@@ -21,12 +20,6 @@ public class AddContactController {
         entityManager.persist(contact);
         entityTransaction.commit();
 
-        if (mainWindowController != null) {
-            mainWindowController.refreshContacts();
-        }
-    }
-
-    public void setMainWindowController(MainWindowController mainWindowController) {
-        this.mainWindowController = mainWindowController;
+        Main.eventBus.post(new ContactListChangedEvent());
     }
 }
