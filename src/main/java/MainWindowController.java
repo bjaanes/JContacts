@@ -1,4 +1,3 @@
-import com.google.common.eventbus.Subscribe;
 import data.Contact;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,9 +11,9 @@ import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.Query;
 import java.io.IOException;
 import java.net.URL;
@@ -23,20 +22,13 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class MainWindowController implements Initializable {
-    @FXML
-    private ListView<Contact> contactListView;
-    private ArrayList<Contact> contactList = new ArrayList<Contact>();
+    @FXML private ListView<Contact> contactListView;
+    @Inject EntityManagerFactory entityManagerFactory;
 
-    EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("JContactsPersistenceUnit");
+    private ArrayList<Contact> contactList = new ArrayList<Contact>();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        refreshContacts();
-        Main.eventBus.register(this);
-    }
-
-    @Subscribe
-    public void handleChangeEvent(ContactListChangedEvent event) {
         refreshContacts();
     }
 

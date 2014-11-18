@@ -1,25 +1,32 @@
-import com.google.common.eventbus.EventBus;
 import javafx.application.Application;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
+import org.jboss.weld.environment.se.Weld;
 
 public class Main extends Application {
 
-    public static EventBus eventBus = new EventBus(); // TODO: REMOVE AS SOON AS DEPENDENCY INJECTION IS STARTING!
+    private Weld weld;
 
     public static void main(String[] args) {
         Application.launch(Main.class, args);
     }
 
     @Override
-    public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("fxml/main.fxml"));
+    public void init() {
+        weld = new Weld();
+    }
 
-        stage.setTitle("JContacts");
-        stage.setScene(new Scene(root, 750, 500));
-        stage.show();
+    @Override
+    public void start(Stage stage) throws Exception {
+        weld.initialize()
+                .instance()
+                .select(FxMain.class)
+                .get()
+                .start(stage, getParameters());
+    }
+
+    @Override
+    public void stop() {
+        weld.shutdown();
     }
 }

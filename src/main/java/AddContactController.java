@@ -2,13 +2,14 @@ import data.Contact;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
+import javax.inject.Inject;
 import javax.persistence.*;
 
 public class AddContactController {
     @FXML private TextField firstName;
     @FXML private TextField lastName;
 
-    private EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("JContactsPersistenceUnit");
+    @Inject private EntityManagerFactory entityManagerFactory;
 
     @FXML protected void addContact() {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
@@ -19,7 +20,5 @@ public class AddContactController {
         entityTransaction.begin();
         entityManager.persist(contact);
         entityTransaction.commit();
-
-        Main.eventBus.post(new ContactListChangedEvent());
     }
 }
