@@ -1,3 +1,4 @@
+import cdi.AppQualified;
 import javafx.fxml.FXMLLoader;
 import javafx.util.Callback;
 

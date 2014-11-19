@@ -6,7 +6,7 @@
 
 
 <?import javafx.geometry.Insets?>
-<BorderPane fx:controller="MainWindowController" xmlns:fx="http://javafx.com/fxml" styleClass="root">
+<BorderPane fx:controller="controllers.MainWindowController" xmlns:fx="http://javafx.com/fxml" styleClass="root">
 
     <left>
         <ListView fx:id="contactListView" />
@@ -19,7 +19,7 @@
     <bottom>
         <HBox spacing="10" alignment="CENTER">
             <padding><Insets top="10"/></padding>
-            <Button text="Add Contact" onAction="#openAddContactDialog"/>
+            <Button text="Add Contact" />
             <Button text="Refresh" onAction="#refreshContacts"/>
         </HBox>
     </bottom>
