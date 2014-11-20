@@ -1,4 +1,6 @@
-import cdi.AppQualified;
+package com.gjermundbjaanes.fx;
+
+import com.gjermundbjaanes.cdi.AppQualified;
 import javafx.fxml.FXMLLoader;
 import javafx.util.Callback;
 
@@ -15,7 +17,7 @@ public class FXMLLoaderProducer {
         FXMLLoader loader = new FXMLLoader();
 
         loader.setControllerFactory(new ControllerFactoryCallback());
-        loader.setLocation(Main.class.getResource("fxml/"));
+        loader.setLocation(getClass().getResource(""));
 
         return loader;
     }

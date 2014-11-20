@@ -1,6 +1,6 @@
-package services;
+package com.gjermundbjaanes.services;
 
-import data.Contact;
+import com.gjermundbjaanes.data.Contact;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;

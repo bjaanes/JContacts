@@ -1,4 +1,6 @@
-import cdi.AppQualified;
+package com.gjermundbjaanes.fx;
+
+import com.gjermundbjaanes.cdi.AppQualified;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,7 +17,7 @@ public class FxMain {
 
     public void start(Stage stage, Application.Parameters parameters) throws IOException
     {
-        InputStream fxml = Main.class.getResourceAsStream("fxml/main.fxml");
+        InputStream fxml = Main.class.getResourceAsStream("main.fxml");
         Parent root = (Parent) fxmlLoader.load(fxml);
 
         stage.setTitle("JContacts");

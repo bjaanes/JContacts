@@ -6,7 +6,7 @@
 
     <persistence-unit name="JContactsPersistenceUnit" transaction-type="RESOURCE_LOCAL">
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-        <class>data.Contact</class>
+        <class>com.gjermundbjaanes.data.Contact</class>
         <properties>
             <property name="javax.persistence.schema-generation.database.action" value="create"/>
             <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver"/>

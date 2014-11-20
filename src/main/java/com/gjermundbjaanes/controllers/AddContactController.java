@@ -1,7 +1,7 @@
-package controllers;
+package com.gjermundbjaanes.controllers;
 
-import services.ContactService;
-import data.Contact;
+import com.gjermundbjaanes.services.ContactService;
+import com.gjermundbjaanes.data.Contact;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 

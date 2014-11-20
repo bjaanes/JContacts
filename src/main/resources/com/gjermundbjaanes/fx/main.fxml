@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:controller="com.gjermundbjaanes.controllers.MainWindowController" xmlns:fx="http://javafx.com/fxml">
+
+    <top>
+        <MenuBar>
+            <Menu text="Contacts">
+                <MenuItem text="Add Contact" onAction="#addContactClickHandler"/>
+                <MenuItem text="..."/>
+            </Menu>
+            <Menu text="Help">
+                <MenuItem text="Show help"/>
+                <MenuItem text="About"/>
+            </Menu>
+        </MenuBar>
+    </top>
+
+    <left>
+        <ListView fx:id="contactListView" />
+    </left>
+
+    <center>
+        <GridPane alignment="center" fx:id="contentPane"/>
+    </center>
+
+    <stylesheets>
+        <URL value="@css/main.css"/>
+    </stylesheets>
+
+</BorderPane>

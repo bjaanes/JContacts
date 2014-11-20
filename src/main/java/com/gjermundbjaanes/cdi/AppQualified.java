@@ -1,4 +1,4 @@
-package cdi;
+package com.gjermundbjaanes.cdi;
 
 import javax.inject.Qualifier;
 import java.lang.annotation.Documented;
