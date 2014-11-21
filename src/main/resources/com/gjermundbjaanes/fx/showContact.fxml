@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+
+<GridPane fx:controller="com.gjermundbjaanes.controllers.ShowContactController" xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
+    <padding><Insets top="25" right="25" bottom="25" left="25"/></padding>
+
+    <Label text="First Name" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+    <Label text="placeholder" GridPane.rowIndex="0" GridPane.columnIndex="1" fx:id="firstNameLabel"/>
+
+    <Label text="Last Name" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+    <Label text="placeholder" GridPane.rowIndex="1" GridPane.columnIndex="1" fx:id="lastNameLabel"/>
+
+</GridPane>

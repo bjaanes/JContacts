@@ -6,10 +6,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
-import javafx.util.Callback;
 
 import javax.inject.Inject;
 import java.io.IOException;
@@ -25,13 +24,25 @@ public class MainWindowController implements Initializable, Observer {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        contactService.addObserver(this);
         refreshContacts();
+        contactService.addObserver(this);
     }
 
     @FXML
     protected void addContactClickHandler() throws IOException {
         showAddContactPane();
+    }
+
+    @FXML
+    protected void handleOnContactMouseClick(MouseEvent mouseEvent) throws IOException {
+        Contact selectedContact = contactListView.getSelectionModel().getSelectedItem();
+        showShowContactPane(selectedContact);
+    }
+
+    private void showShowContactPane(Contact contact) throws IOException {
+        SubPaneLoader subPaneLoader = javax.enterprise.inject.spi.CDI.current().select(SubPaneLoader.class).get();
+        contentPane.getChildren().clear();
+        contentPane.getChildren().add(subPaneLoader.createShowContact(contact));
     }
 
     private void showAddContactPane() throws IOException {
@@ -49,13 +60,5 @@ public class MainWindowController implements Initializable, Observer {
     @Override
     public void update(Observable o, Object arg) {
         refreshContacts();
-    }
-
-    private static class ContactCellFactoryCallback implements Callback<ListView<Contact>, ListCell<Contact>> {
-        @Override
-        public ListCell<Contact> call(ListView<Contact> contactListView) {
-            return new ContactListCell();
-        }
-
     }
 }
