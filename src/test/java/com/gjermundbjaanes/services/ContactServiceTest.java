@@ -1,5 +1,6 @@
 package com.gjermundbjaanes.services;
 
+import com.gjermundbjaanes.JContactException;
 import com.gjermundbjaanes.data.Contact;
 import org.junit.Before;
 import org.junit.Test;
@@ -9,6 +10,7 @@ import org.mockito.MockitoAnnotations;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 import java.util.ArrayList;
 
@@ -21,12 +23,14 @@ public class ContactServiceTest {
     @Mock EntityManagerFactory entityManagerFactory;
     @Mock EntityManager entityManager;
     @Mock Query query;
+    @Mock EntityTransaction entityTransaction;
 
     @InjectMocks ContactService contactService;
 
     @Before public void initMocks() {
         MockitoAnnotations.initMocks(this);
         when(entityManager.createQuery(anyString())).thenReturn(query);
+        when(entityManager.getTransaction()).thenReturn(entityTransaction);
         when(entityManagerFactory.createEntityManager()).thenReturn(entityManager);
     }
 
@@ -64,5 +68,10 @@ public class ContactServiceTest {
         assertFalse(returnedContactList.isEmpty());
         assertEquals(contactList.size(), returnedContactList.size());
         assertEquals(contactList.get(0), returnedContactList.get(0));
+    }
+
+    @Test(expected = JContactException.class)
+    public void addContactShouldFailWithNull() throws JContactException {
+        contactService.addContact(null);
     }
 }

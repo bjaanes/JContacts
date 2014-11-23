@@ -1,5 +1,6 @@
 package com.gjermundbjaanes.services;
 
+import com.gjermundbjaanes.JContactException;
 import com.gjermundbjaanes.data.Contact;
 
 import javax.inject.Inject;
@@ -15,16 +16,20 @@ public class ContactService extends Observable {
     @Inject
     EntityManagerFactory entityManagerFactory;
 
-    public void addContact(Contact contact) {
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
+    public void addContact(Contact contact) throws JContactException {
+        if (contact != null) {
+            EntityManager entityManager = entityManagerFactory.createEntityManager();
 
-        EntityTransaction entityTransaction = entityManager.getTransaction();
-        entityTransaction.begin();
-        entityManager.persist(contact);
-        entityTransaction.commit();
+            EntityTransaction entityTransaction = entityManager.getTransaction();
+            entityTransaction.begin();
+            entityManager.persist(contact);
+            entityTransaction.commit();
 
-        setChanged();
-        notifyObservers();
+            setChanged();
+            notifyObservers();
+        } else {
+            throw new JContactException("Contact is null");
+        }
     }
 
     public ArrayList<Contact> getContacts() {

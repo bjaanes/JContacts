@@ -1,5 +1,6 @@
 package com.gjermundbjaanes.controllers;
 
+import com.gjermundbjaanes.JContactException;
 import com.gjermundbjaanes.services.ContactService;
 import com.gjermundbjaanes.data.Contact;
 import javafx.fxml.FXML;
@@ -15,6 +16,11 @@ public class AddContactController {
 
     @FXML protected void addContact() {
         Contact contact = new Contact(firstNameField.getText(), lastName.getText());
-        contactService.addContact(contact);
+        try {
+            contactService.addContact(contact);
+        } catch (JContactException e) {
+            // TODO: HANDLE THIS
+            e.printStackTrace();
+        }
     }
 }
