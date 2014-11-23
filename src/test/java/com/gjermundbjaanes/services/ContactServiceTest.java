@@ -12,8 +12,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import java.util.ArrayList;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.when;
 
@@ -27,20 +26,43 @@ public class ContactServiceTest {
 
     @Before public void initMocks() {
         MockitoAnnotations.initMocks(this);
+        when(entityManager.createQuery(anyString())).thenReturn(query);
+        when(entityManagerFactory.createEntityManager()).thenReturn(entityManager);
     }
 
     @Test
-    public void shouldReturnEmptyListOnNullQuery() {
-        // Given
+    public void getContactsShouldReturnEmptyListWhenNullQuery() {
         when(query.getResultList()).thenReturn(null);
-        when(entityManager.createQuery(anyString())).thenReturn(query);
-        when(entityManagerFactory.createEntityManager()).thenReturn(entityManager);
 
-        // When
         ArrayList<Contact> returnedContactList = contactService.getContacts();
 
-        // Then
         assertNotNull(returnedContactList);
         assertTrue(returnedContactList.isEmpty());
+    }
+
+    @Test
+    public void getContactsShouldReturnEmptyWhenEmptyQuery() {
+        ArrayList<Contact> emptyContactList = new ArrayList<>();
+        when(query.getResultList()).thenReturn(emptyContactList);
+
+        ArrayList<Contact> returnedContactList = contactService.getContacts();
+
+        assertNotNull(returnedContactList);
+        assertTrue(returnedContactList.isEmpty());
+    }
+
+    @Test
+    public void getContactsShouldReturnContacts() {
+        ArrayList<Contact> contactList = new ArrayList<>();
+        contactList.add(new Contact("firstname", "lastname"));
+        contactList.add(new Contact("test", "test"));
+        when(query.getResultList()).thenReturn(contactList);
+
+        ArrayList<Contact> returnedContactList = contactService.getContacts();
+
+        assertNotNull(returnedContactList);
+        assertFalse(returnedContactList.isEmpty());
+        assertEquals(contactList.size(), returnedContactList.size());
+        assertEquals(contactList.get(0), returnedContactList.get(0));
     }
 }

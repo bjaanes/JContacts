@@ -24,7 +24,7 @@
     </left>
 
     <center>
-        <GridPane alignment="center" fx:id="contentPane"/>
+        <AnchorPane fx:id="contentPane"/>
     </center>
 
     <stylesheets>
