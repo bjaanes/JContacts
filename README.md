@@ -1,5 +1,7 @@
-A contacts app in java fx with CDI and JPA
+JContacts
 =======
+A contacts app in java fx with CDI and JPA
+
 
 This project was mainly made to test out technologies.
 
