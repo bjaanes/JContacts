@@ -13,7 +13,19 @@
     <TextField fx:id="firstNameField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
 
     <Label text="Last Name" GridPane.rowIndex="3" GridPane.columnIndex="0" styleClass="titleLabel"/>
-    <TextField fx:id="lastName" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+    <TextField fx:id="lastNameField" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+    <Label text="Street Address" GridPane.rowIndex="4" GridPane.columnIndex="0" styleClass="titleLabel"/>
+    <TextField fx:id="streetAddressField" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+    <Label text="Postal Code" GridPane.rowIndex="5" GridPane.columnIndex="0" styleClass="titleLabel"/>
+    <TextField fx:id="postalCodeField" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+
+    <Label text="City" GridPane.rowIndex="6" GridPane.columnIndex="0" styleClass="titleLabel"/>
+    <TextField fx:id="cityField" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+
+    <Label text="Country" GridPane.rowIndex="7" GridPane.columnIndex="0" styleClass="titleLabel"/>
+    <TextField fx:id="countryField" GridPane.rowIndex="7" GridPane.columnIndex="1"/>
 
     <columnConstraints>
         <ColumnConstraints percentWidth="30" hgrow="ALWAYS" halignment="RIGHT"/>

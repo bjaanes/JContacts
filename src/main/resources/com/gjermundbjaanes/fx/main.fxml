@@ -20,7 +20,7 @@
     </top>
 
     <left>
-        <ListView fx:id="contactListView" onMouseClicked="#handleOnContactMouseClick" />
+        <ListView fx:id="contactListView"/>
     </left>
 
     <center>

@@ -23,6 +23,7 @@ public class ContactService extends Observable {
             EntityTransaction entityTransaction = entityManager.getTransaction();
             entityTransaction.begin();
             entityManager.persist(contact);
+            entityManager.persist(contact.getAddress());
             entityTransaction.commit();
 
             setChanged();

@@ -3,10 +3,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.*?>
 <?import java.net.URL?>
-
-
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.control.Separator?>
+
 <GridPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.gjermundbjaanes.controllers.ShowContactController"
           maxHeight="Infinity"
           maxWidth="Infinity"
@@ -17,10 +15,22 @@
     <Separator GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.columnSpan="2"/>
 
     <Label text="First Name" GridPane.rowIndex="2" GridPane.columnIndex="0" styleClass="titleLabel"/>
-    <Label text="placeholder" GridPane.rowIndex="2" GridPane.columnIndex="1" fx:id="firstNameLabel"/>
+    <Label GridPane.rowIndex="2" GridPane.columnIndex="1" fx:id="firstNameLabel"/>
 
     <Label text="Last Name" GridPane.rowIndex="3" GridPane.columnIndex="0" styleClass="titleLabel"/>
-    <Label text="placeholder" GridPane.rowIndex="3" GridPane.columnIndex="1" fx:id="lastNameLabel"/>
+    <Label GridPane.rowIndex="3" GridPane.columnIndex="1" fx:id="lastNameLabel"/>
+
+    <Label text="Street Address" GridPane.rowIndex="4" GridPane.columnIndex="0" styleClass="titleLabel"/>
+    <Label GridPane.rowIndex="4" GridPane.columnIndex="1" fx:id="streetAddressLabel"/>
+
+    <Label text="Postal Code" GridPane.rowIndex="5" GridPane.columnIndex="0" styleClass="titleLabel"/>
+    <Label GridPane.rowIndex="5" GridPane.columnIndex="1" fx:id="postalCodeLabel"/>
+
+    <Label text="City" GridPane.rowIndex="6" GridPane.columnIndex="0" styleClass="titleLabel"/>
+    <Label GridPane.rowIndex="6" GridPane.columnIndex="1" fx:id="cityLabel"/>
+
+    <Label text="Country" GridPane.rowIndex="7" GridPane.columnIndex="0" styleClass="titleLabel"/>
+    <Label GridPane.rowIndex="7" GridPane.columnIndex="1" fx:id="countryLabel"/>
 
     <columnConstraints>
         <ColumnConstraints percentWidth="30" hgrow="ALWAYS" halignment="RIGHT"/>

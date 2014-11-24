@@ -58,8 +58,7 @@ public class ContactServiceTest {
     @Test
     public void getContactsShouldReturnContacts() {
         ArrayList<Contact> contactList = new ArrayList<>();
-        contactList.add(new Contact("firstname", "lastname"));
-        contactList.add(new Contact("test", "test"));
+        addContactsToList(contactList);
         when(query.getResultList()).thenReturn(contactList);
 
         ArrayList<Contact> returnedContactList = contactService.getContacts();
@@ -68,6 +67,11 @@ public class ContactServiceTest {
         assertFalse(returnedContactList.isEmpty());
         assertEquals(contactList.size(), returnedContactList.size());
         assertEquals(contactList.get(0), returnedContactList.get(0));
+    }
+
+    private void addContactsToList(ArrayList<Contact> contactList) {
+        contactList.add(new Contact());
+        contactList.add(new Contact());
     }
 
     @Test(expected = JContactException.class)
